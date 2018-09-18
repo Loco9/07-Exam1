@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Logan Cody.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -93,6 +93,22 @@ def problem1a(rectangle, square, thickness, window):
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
+    square1 = square
+    square1.attach_to(window)
+
+    rectangle1 = rectangle
+    rectangle1.attach_to(window)
+
+    end_x = (rectangle1.corner_1.x + rectangle1.corner_2.x) * 0.5
+    end_y = rectangle1._upper_right_corner.y
+    end = rg.Point(end_x, end_y)
+
+    line1 = rg.Line(rg.Point(square1.center.x, square1.center.y), end)
+    line1.attach_to(window)
+    line1.thickness = thickness
+    line1.color = rectangle1.outline_color
+
+    window.render()
 
 def run_test_problem1b():
     """ Tests the  problem1b   function. """
